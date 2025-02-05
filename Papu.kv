@@ -1,0 +1,992 @@
+<ScreenManager>: 
+    MainScreen:
+        name: 'Main'
+    TopicsScreen:
+        name: 'Topics'
+    ConjuntosScreen:
+        name: 'ConjuntoS'
+    FuncionesScreen:
+        name: 'FuncioneS'
+    GrafosScreen:
+        name: 'GrafoS'
+    ArbolesScreen:
+        name: 'ArboleS'
+    AlgoritmosScreen:
+        name: 'AlgoritmoS'
+
+
+<MainScreen>: 
+    canvas.before:
+
+              # Cambia a tu color deseado (RGBA)
+        Rectangle:
+            source: 'Bienvenida.jpg'
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        orientation: 'vertical'
+         
+        Label: 
+            text: 'Hola Precioso UwU'
+            size_hint_y: None
+            height: 60
+            font_size: 60
+            halign: 'center'
+            valign: 'top'
+            text_size: self.size
+               
+
+        TextInput:
+            id: name_input
+            hint_text: 'Ingrese su nombre'
+            multiline: False
+            size_hint_y: None
+            height: 40
+
+        Button:
+            text: 'Entrar'
+            size_hint_y: None
+            height: 40
+            on_press: root.go_to_topics()
+            background_color: (1, 1, 1, 1)
+
+<TopicsScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+
+                    
+
+        Image: 
+            source: 'Portada.jpg'
+            allow_stretch: True
+            keep_ratio: False
+
+        Label:
+            id: title_label
+            text: 'Temas'
+            font_size: '30sp'
+            halign: 'center'
+            size_hint_y: None
+            height: 50
+
+        ScrollView:
+            GridLayout:
+                id: topics_grid
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+
+                Button:
+                    
+                    background_color: (1, 1, 1, 1)
+                    text: 'Conjuntos'
+                    #Color rosa
+                    background_color: 1, 0.7, 0.9, 1  # Color en formato RGBA
+                    background_normal: ''
+                    
+                    size_hint_y: None
+                    height: 40
+                    on_release: root.manager.current = 'ConjuntoS'
+
+
+                Button:
+                    text: 'Funciones y Relaciones'
+                    size_hint_y: None
+                    #Color rosa
+                    background_color: 1, 0.7, 0.9, 1  # Color en formato RGBA
+                    background_normal: ''
+                    height: 40
+                    on_press: root.manager.current = 'FuncioneS'
+
+                Button:
+                    text: 'Grafos'
+                    size_hint_y: None
+                    #Color rosa
+                    background_color: 1, 0.7, 0.9, 1  # Color en formato RGBA
+                    background_normal: ''
+                    height: 40
+                    on_press: root.manager.current = 'GrafoS'
+
+                Button:
+                    #color: 1, 0.7, 0.7, 1
+                    text: 'Árboles'
+                    #Color rosa
+                    background_color: 1, 0.7, 0.9, 1  # Color en formato RGBA
+                    background_normal: ''
+                    size_hint_y: None
+                    height: 40
+                    on_press: root.manager.current = 'ArboleS'
+
+                Button:
+                    text: 'Algoritmos'
+                    #Color rosa
+                    background_color: 1, 0.7, 0.9, 1  # Color en formato RGBA
+                    background_normal: ''
+                    size_hint_y: None
+                    height: 40
+                    on_press: root.manager.current = 'AlgoritmoS'
+
+                Button:
+                    text: 'WoW'
+                    #Color rosa
+                    background_color: 1, 0.7, 0.9, 1  # Color en formato RGBA
+                    background_normal: ''
+                    size_hint_y: None
+                    height: 40
+                    on_press: root.manager.current = 'Bolita'
+
+
+                Button:
+                    text: 'Salir'
+                    #Color rosa
+                    background_color: 1, 0.7, 0.1, 1  # Color en formato RGBA
+                    background_normal: ''
+                    size_hint_y: None
+                    height: 40
+                    on_press: root.exit_app()
+
+
+
+<ConjuntosScreen>:
+    name: 'Conjuntos'
+    
+    BoxLayout:
+        orientation: 'vertical'
+
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'FONDO1.jpg'
+                
+    
+
+        BoxLayout:
+            orientation: 'vertical'
+
+            ScrollView:
+                size_hint: (1, 1)
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    padding: 10
+                    spacing: 10
+
+                    Label:
+                        text: 'Conjuntos'
+                        size_hint_y: None
+                        height: 60
+                        font_size: 60
+                        halign: 'center'
+                        valign: 'middle'
+                        text_size: self.size
+
+                    
+                    Label:
+
+                        text: 'Diagrama de Venn'
+
+                        size_hint_y: None
+
+                        height: 40
+
+                        font_size: 40
+
+                        halign: 'center'
+
+                        valign: 'middle'
+
+                        text_size: self.size
+
+
+                    Label:
+
+                        text: "Un conjunto es una colección bien definida de elementos, que pueden ser números, objetos, personas, letras, etc. Por ejemplo, el conjunto de los números pares menores que 10 se denota como:\nA={2,4,6,8}"
+
+                        font_size: 18
+
+                        size_hint_y: None
+
+                        height: self.texture_size[1] + 20  # Ajustar altura según el texto
+
+                        text_size: self.width, None  # Permitir que el texto se ajuste al ancho del Label
+
+                        halign: 'left'  # Alinear el texto a la izquierda
+
+                        valign: 'top'  # Alinear el texto en la parte superior
+
+                        padding: [10, 10]  # Espaciado interno
+
+
+                    Label:
+
+                        text: "Características de los conjuntos:"
+
+                        font_size: 20
+
+                        size_hint_y: None
+
+                        height: self.texture_size[1] + 20
+
+
+                    Label:
+
+                        text: "- Elementos: Los objetos dentro de un conjunto. Se representan generalmente con llaves, por ejemplo: {a,b,c}."
+
+                        font_size: 18
+
+                        size_hint_y: None
+
+                        height: self.texture_size[1] + 20
+
+                        text_size: self.width, None
+
+                        halign: 'left'
+
+                        valign: 'top'
+
+                        padding: [10, 10]
+
+
+                    Label:
+
+                        text: "- Notación:\n    Pertenencia: x∈A significa que x es un elemento del conjunto A.\n    No pertenencia: x∉A indica que x no pertenece a A."
+
+                        font_size: 18
+
+                        size_hint_y: None
+
+                        height: self.texture_size[1] + 20
+
+                        text_size: self.width, None
+
+                        halign: 'left'
+
+                        valign: 'top'
+
+                        padding: [10, 10]
+
+
+                    Label:
+
+                        text: "- Operaciones principales:\n    Unión (A∪B): Conjunto de elementos que están en A, en B o en ambos.\n    Intersección (A∩B): Conjunto de elementos que están en ambos conjuntos.\n    Diferencia (A−B): Conjunto de elementos que están en A pero no en B.\n    Complemento (Aᶜ): Elementos que no están en A dentro de un universo dado."
+
+                        font_size: 18
+
+                        size_hint_y: None
+
+                        height: self.texture_size[1] + 20
+
+                        text_size: self.width, None
+
+                        halign: 'left'
+
+                        valign: 'top'
+
+                        padding: [10, 10]
+
+                    Image:
+
+                        source: 'Venn1.jpg'
+
+                        size_hint_x: 1
+
+                        size_hint_y: None
+
+                        height: 300
+
+                        allow_stretch: True
+
+                        keep_ratio: True
+
+                    Label:
+
+                        id: info_label  # Asignamos un ID al Label
+
+                        size_hint_y: None
+
+                        height: self.texture_size[1] + 20  # Ajustar altura según el texto
+
+                        text_size: self.width, None  # Permitir que el texto se ajuste al ancho del Label
+
+                        halign: 'left'  # Alinear el texto a la izquierda
+
+                        valign: 'top'  # Alinear el texto en la parte superior
+
+
+                    Label:
+                        text: "Universo (separar por comas):"
+                        size_hint_y: None
+                        height: 30
+                        font_size: 25
+
+                    TextInput:
+                        id: input_universo
+                        size_hint_y: None
+                        height: 40
+
+                    Label:
+                        text: "Conjunto A (separar por comas):"
+                        size_hint_y: None
+                        height: 30
+                        font_size: 25
+
+                    TextInput:
+                        id: input_a
+                        size_hint_y: None
+                        height: 40
+
+                    Label:
+                        text: "Conjunto B (separar por comas):"
+                        size_hint_y: None
+                        height: 30
+                        font_size: 25
+
+                    TextInput:
+                        id: input_b
+                        size_hint_y: None
+                        height: 40
+
+                    BoxLayout:
+                        size_hint_y: None
+                        height: 50
+
+                        Button:
+                            text: 'Calcular Unión'
+                            on_release: root.calcular_union()
+
+                        Button:
+                            text: 'Calcular\n Intersección'
+                            on_release: root.calcular_interseccion()
+
+                        Button:
+                            text: 'Calcular Complemento\n General'
+                            on_release: root.calcular_complemento_general()
+
+                        Button:
+                            text: 'Calcular\nComplemento A'
+                            on_release: root.calcular_complemento_individual('A')
+
+                        Button:
+                            text: 'Calcular\n Complemento B'
+                            on_release: root.calcular_complemento_individual('B')
+
+                        Button:
+
+                            text: 'Calcular Diferencia\n Simétrica'
+                            on_release: root.calcular_diferencia_simetrica()
+
+
+                    Label:
+                        text: 'Resultado:'
+                        size_hint_y: None
+                        height: 30
+                        font_size: 25
+
+                    Label:
+                        id: resultado
+                        size_hint_y: None
+                        height: 40
+                        font_size: 25
+
+        Button:
+            text: 'Menu'
+            size_hint: None, None
+            size: 100, 40
+            pos_hint: {'center_x': 0.5, 'bottom': 0}
+            on_release: root.manager.current = 'Topics'
+
+<FuncionesScreen>:
+    name: 'Funciones y Relaciones'
+
+
+    
+    BoxLayout:
+        orientation: 'vertical'
+
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'FONDO2.png'
+    
+
+        BoxLayout:
+            orientation: 'vertical'
+
+            ScrollView:
+                size_hint: (1, 1)
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    padding: 10
+                    spacing: 10
+
+                    Label:
+                        text: 'Funciones y Relaciones'
+                        size_hint_y: None
+                        height: 60
+                        font_size: 60
+                        halign: 'center'
+                        valign: 'middle'
+                        text_size: self.size
+
+                    Label:
+                        text: 'Funciones'
+                        size_hint_y: None
+                        height: 40
+                        font_size: 45
+                        halign: 'left'
+                        valign: 'middle'
+                        text_size: self.size
+                    
+
+                    Label:
+                    
+                        id: funciones1_label  # Asignamos un ID al Label para poder referenciarlo
+
+                        size_hint_y: None
+
+                        height: self.texture_size[1] + 20  # Ajustar altura según el texto
+
+                        text_size: self.width, None  # Permitir que el texto se ajuste al ancho del Label
+
+                        halign: 'left'  # Alinear el texto a la izquierda
+
+                        valign: 'top'  # Alinear el texto en la parte superior
+
+                    Image:
+
+                        source: 'Funciones.png'
+
+                        size_hint_x: 1
+
+                        size_hint_y: None
+
+                        height: 300
+
+                        allow_stretch: True
+
+                        keep_ratio: True
+
+
+                    Image:
+
+                        source: 'Funciones2.jpeg'
+
+                        size_hint_x: 1
+
+                        size_hint_y: None
+
+                        height: 300
+
+                        allow_stretch: True
+
+                        keep_ratio: True
+
+                    Image:
+
+                        source: 'FuncionRegla-de-correspondencia.jpg'
+
+                        size_hint_x: 1
+
+                        size_hint_y: None
+
+                        height: 300
+
+                        allow_stretch: True
+
+                        keep_ratio: True
+
+                    
+
+                    Label:
+                        text: 'Relaciones'
+                        size_hint_y: None
+                        height: 40
+                        font_size: 45
+                        halign: 'center'
+                        valign: 'middle'
+                        text_size: self.size
+
+                    Label:
+                    
+                        id: funciones2_label  # Asignamos un ID al Label para poder referenciarlo
+
+                        size_hint_y: None
+
+                        height: self.texture_size[1] + 20  # Ajustar altura según el texto
+
+                        text_size: self.width, None  # Permitir que el texto se ajuste al ancho del Label
+
+                        halign: 'left'  # Alinear el texto a la izquierda
+
+                        valign: 'top'  # Alinear el texto en la parte superior
+
+                    Image:
+
+                        source: 'relation.png'
+
+                        size_hint_x: 1
+
+                        size_hint_y: None
+
+                        height: 300
+
+                        allow_stretch: True
+
+                        keep_ratio: True
+
+                    
+        Button:
+            text: 'Menu'
+            size_hint: None, None
+            size: 100, 20
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+            on_release: root.manager.current = 'Topics'
+
+<GrafosScreen>:
+    name: 'Grafos'
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'FONDO2.jpg'
+    
+
+        FloatLayout:
+            orientation: 'vertical'
+
+            ScrollView:
+                size_hint: (1, 1)
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    padding: 10
+                    spacing: 10
+                    Label:
+                        text: 'GRAFOS'
+                        size_hint_y: None
+                        height: 60
+                        font_size: 60
+                        halign: 'center'
+                        valign: 'middle'
+                        text_size: self.size
+
+                    Label:
+                        text: 'Tipos de Grafos'
+                        size_hint_y: None
+                        height: 40
+                        font_size: 45
+                        halign: 'left'
+                        valign: 'middle'
+                        text_size: self.size
+
+                    Label:
+                        id: grafos_info0_label  # Asignamos un ID al Label para poder referenciarlo
+                        text: ''  # Este texto se actualizará en el método on_enter
+                        size_hint_y: None
+                        height: self.texture_size[1] + 20  # Ajustar altura según el texto
+                        text_size: self.width, None  # Permitir que el texto se ajuste al ancho del Label
+                        halign: 'left'  # Alinear el texto a la izquierda
+                        valign: 'top'  # Alinear el texto en la parte superior
+                        padding: [10, 10]  # Espaciado interno
+
+                    VideoPlayer:
+                        id: video_player
+                        source: "Grafo1.mp4"
+                        state: 'play'  # Inicia el video en reproducción
+                        options: {'eos':'loop'}  # Reproduce en bucle
+                        size_hint: None, None  # Tamaño del reproductor de video
+                        size: 3000, 1000  # Tamaño del reproductor de video
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Centrar el video en la pantalla
+                        volume: 0  # Silenciar el audio
+
+
+                    Label:
+                        text: 'Vertices y Aristas'
+                        size_hint_y: None
+                        height: 40
+                        font_size: 45
+                        halign: 'left'
+                        valign: 'middle'
+                        text_size: self.size
+
+
+                    Label:
+                        id: grafos_info1_label  # Asignamos un ID al Label para poder referenciarlo
+                        text: ''  # Este texto se actualizará en el método on_enter
+                        size_hint_y: None
+                        height: self.texture_size[1] + 20  # Ajustar altura según el texto
+                        text_size: self.width, None  # Permitir que el texto se ajuste al ancho del Label
+                        halign: 'left'  # Alinear el texto a la izquierda
+                        valign: 'top'  # Alinear el texto en la parte superior
+                        padding: [10, 10]  # Espaciado interno
+                      
+                    VideoPlayer:
+                        id: video_player
+                        source: "GraphParts.mp4"
+                        state: 'play'  # Inicia el video en reproducción
+                        options: {'eos':'loop'}  # Reproduce en bucle
+                        size_hint: None, None  # Tamaño del reproductor de video
+                        size: 3000, 1000  # Tamaño del reproductor de video
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Centrar el video en la pantalla
+                        volume: 0  # Silenciar el audio
+                        
+                    Label:
+                        text: 'Grado del Grafo'
+                        size_hint_y: None
+                        height: 40
+                        font_size: 45
+                        halign: 'left'
+                        valign: 'middle'
+                        text_size: self.size
+
+
+                    Label:
+                        id: grafos_info2_label  # Asignamos un ID al Label para poder referenciarlo
+                        text: ''  # Este texto se actualizará en el método on_enter
+                        size_hint_y: None
+                        height: self.texture_size[1] + 20  # Ajustar altura según el texto
+                        text_size: self.width, None  # Permitir que el texto se ajuste al ancho del Label
+                        halign: 'left'  # Alinear el texto a la izquierda
+                        valign: 'top'  # Alinear el texto en la parte superior
+                        padding: [10, 10]  # Espaciado interno
+
+                    VideoPlayer:
+                        id: video_player
+                        source: "GraphDegree.mp4"
+                        state: 'play'  # Inicia el video en reproducción
+                        options: {'eos':'loop'}  # Reproduce en bucle
+                        size_hint: None, None  # Tamaño del reproductor de video
+                        size: 3000, 1000  # Tamaño del reproductor de video
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Centrar el video en la pantalla
+                        volume: 0  # Silenciar el audio
+
+                    Label:
+                        text: 'Tipos de Grafo'
+                        size_hint_y: None
+                        height: 40
+                        font_size: 45
+                        halign: 'left'
+                        valign: 'middle'
+                        text_size: self.size
+
+                    Label:
+                        id: grafos_info3_label  # Asignamos un ID al Label para poder referenciarlo
+                        text: ''  # Este texto se actualizará en el método on_enter
+                        size_hint_y: None
+                        height: self.texture_size[1] + 20  # Ajustar altura según el texto
+                        text_size: self.width, None  # Permitir que el texto se ajuste al ancho del Label
+                        halign: 'left'  # Alinear el texto a la izquierda
+                        valign: 'top'  # Alinear el texto en la parte superior
+                        padding: [10, 10]  # Espaciado interno
+
+                    VideoPlayer:
+                        id: video_player
+                        source: "GraphTypes.mp4"
+                        state: 'play'  # Inicia el video en reproducción
+                        options: {'eos':'loop'}  # Reproduce en bucle
+                        size_hint: None, None  # Tamaño del reproductor de video
+                        size: 3000, 1000  # Tamaño del reproductor de video
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Centrar el video en la pantalla
+                        volume: 0  # Silenciar el audio
+
+
+                    
+
+        Button:
+            text: 'Menu'
+            size_hint: None, None
+            size: 100, 20
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+            on_release: root.manager.current = 'Topics'
+
+
+<ArbolesScreen>:
+    name: 'Arboles'
+    BoxLayout:
+        orientation: 'vertical'
+
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'fondo3.jpg'
+    
+
+        FloatLayout:
+            orientation: 'vertical'
+
+            ScrollView:
+                size_hint: (1, 1)
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    padding: 10
+                    spacing: 10
+                    Label:
+                        text: 'Arboles'
+                        size_hint_y: None
+                        height: 60
+                        font_size: 60
+                        halign: 'center'
+                        valign: 'middle'
+                        text_size: self.size
+
+                    Label:
+                        id: arbol_info1_label  # Asignamos un ID al Label para poder referenciarlo
+                        text: ''  # Este texto se actualizará en el método on_enter
+                        size_hint_y: None
+                        height: self.texture_size[1] + 20  # Ajustar altura según el texto
+                        text_size: self.width, None  # Permitir que el texto se ajuste al ancho del Label
+                        halign: 'left'  # Alinear el texto a la izquierda
+                        valign: 'top'  # Alinear el texto en la parte superior
+                        padding: [10, 10]  # Espaciado interno\
+
+                    Label:
+                        text: 'Bases'
+                        size_hint_y: None
+                        height: 40
+                        font_size: 45
+                        halign: 'left'
+                        valign: 'middle'
+                        text_size: self.size
+
+                    VideoPlayer:
+                        id: video_player
+                        source: "ParentNodes.mp4"
+                        state: 'play'  # Inicia el video en reproducción
+                        options: {'eos':'loop'}  # Reproduce en bucle
+                        size_hint: None, None  # Tamaño del reproductor de video
+                        size: 3000, 1000  # Tamaño del reproductor de video
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Centrar el video en la pantalla
+                        volume: 0  # Silenciar el audio
+
+                    VideoPlayer:
+                        id: video_player
+                        source: "Height_vs_deep.mp4"
+                        state: 'play'  # Inicia el video en reproducción
+                        options: {'eos':'loop'}  # Reproduce en bucle
+                        size_hint: None, None  # Tamaño del reproductor de video
+                        size: 3000, 1000  # Tamaño del reproductor de video
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Centrar el video en la pantalla
+                        volume: 0  # Silenciar el audio
+
+                    VideoPlayer:
+                        id: video_player
+                        source: "AdyacencyMatrix.mp4"
+                        state: 'play'  # Inicia el video en reproducción
+                        options: {'eos':'loop'}  # Reproduce en bucle
+                        size_hint: None, None  # Tamaño del reproductor de video
+                        size: 3000, 1000  # Tamaño del reproductor de video
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Centrar el video en la pantalla
+                        volume: 0  # Silenciar el audio
+                    
+                    Label:
+                        text: 'Binarios y no Binarios XD'
+                        size_hint_y: None
+                        height: 40
+                        font_size: 45
+                        halign: 'left'
+                        valign: 'middle'
+                        text_size: self.size
+
+                    Label:
+                        id: arbol_info2_label  # Asignamos un ID al Label para poder referenciarlo
+                        text: ''  # Este texto se actualizará en el método on_enter
+                        size_hint_y: None
+                        height: self.texture_size[1] + 20  # Ajustar altura según el texto
+                        text_size: self.width, None  # Permitir que el texto se ajuste al ancho del Label
+                        halign: 'left'  # Alinear el texto a la izquierda
+                        valign: 'top'  # Alinear el texto en la parte superior
+                        padding: [10, 10]  # Espaciado interno\
+                        
+                    VideoPlayer:
+                        id: video_player
+                        source: "BinaryVsNot.mp4"
+                        state: 'play'  # Inicia el video en reproducción
+                        options: {'eos':'loop'}  # Reproduce en bucle
+                        size_hint: None, None  # Tamaño del reproductor de video
+                        size: 3000, 1000  # Tamaño del reproductor de video
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Centrar el video en la pantalla
+                        volume: 0  # Silenciar el audio
+
+
+        Button:
+            text: 'Menu'
+            size_hint: None, None
+            size: 100, 20
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+            on_release: root.manager.current = 'Topics'
+
+
+<AlgoritmosScreen>:
+    name: 'Algoritmos'
+    BoxLayout:
+        orientation: 'vertical'
+
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'fondo4.jpg'
+    
+
+        FloatLayout:
+            orientation: 'vertical'
+
+            ScrollView:
+                size_hint: (1, 1)
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    padding: 10
+                    spacing: 10
+                    Label:
+                        text: 'Algoritmos'
+                        size_hint_y: None
+                        height: 60
+                        font_size: 60
+                        halign: 'center'
+                        valign: 'middle'
+                        text_size: self.size
+
+                    Label:
+                        text: 'Que son'
+                        size_hint_y: None
+                        height: 40
+                        font_size: 45
+                        halign: 'left'
+                        valign: 'middle'
+                        text_size: self.size
+
+                    Label:
+                        id: algo_info1_label
+                        text: ''  # Este texto se actualizará en el método on_enter
+                        size_hint_y: None
+                        height: self.texture_size[1] + 20  # Ajustar altura según el texto
+                        text_size: self.width, None  # Permitir que el texto se ajuste al ancho del Label
+                        halign: 'left'  # Alinear el texto a la izquierda
+                        valign: 'top'  # Alinear el texto en la parte superior
+                        padding: [10, 10]  # Espaciado interno  # Asignamos un ID al Label para poder referenciarlo
+
+                    Label:
+                        text: 'Tipos'
+                        size_hint_y: None
+                        height: 40
+                        font_size: 45
+                        halign: 'left'
+                        valign: 'middle'
+                        text_size: self.size
+
+                    Label:
+                        id: algo_info2_label  # Asignamos un ID al Label para poder referenciarlo
+                        text: ''  # Este texto se actualizará en el método on_enter
+                        size_hint_y: None
+                        height: self.texture_size[1] + 20  # Ajustar altura según el texto
+                        text_size: self.width, None  # Permitir que el texto se ajuste al ancho del Label
+                        halign: 'left'  # Alinear el texto a la izquierda
+                        valign: 'top'  # Alinear el texto en la parte superior
+                        padding: [10, 10]  # Espaciado interno\
+
+                    Image:
+
+                        source: 'algorit.png'
+                        size_hint_x: 1
+                        size_hint_y: None
+                        height: 300
+                        allow_stretch: True
+                        keep_ratio: True
+
+
+                    Label:
+                        text: 'De Busqueda (DFS vs BFS)'
+                        size_hint_y: None
+                        height: 40
+                        font_size: 45
+                        halign: 'left'
+                        valign: 'middle'
+                        text_size: self.size
+
+                    Label:
+                        id: algo_info3_label  # Asignamos un ID al Label para poder referenciarlo
+                        text: ''  # Este texto se actualizará en el método on_enter
+                        size_hint_y: None
+                        height: self.texture_size[1] + 20  # Ajustar altura según el texto
+                        text_size: self.width, None  # Permitir que el texto se ajuste al ancho del Label
+                        halign: 'left'  # Alinear el texto a la izquierda
+                        valign: 'top'  # Alinear el texto en la parte superior
+                        padding: [10, 10]  # Espaciado interno\
+
+                    VideoPlayer:
+                        id: video_player
+                        source: "BinaryVsNot.mp4"
+                        state: 'play'  # Inicia el video en reproducción
+                        options: {'eos':'loop'}  # Reproduce en bucle
+                        size_hint: None, None  # Tamaño del reproductor de video
+                        size: 3000, 1000  # Tamaño del reproductor de video
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Centrar el video en la pantalla
+                        volume: 0  # Silenciar el audio
+
+                    VideoPlayer:
+                        id: video_player
+                        source: "BFS1.mp4"
+                        state: 'play'  # Inicia el video en reproducción
+                        options: {'eos':'loop'}  # Reproduce en bucle
+                        size_hint: None, None  # Tamaño del reproductor de video
+                        size: 3000, 1000  # Tamaño del reproductor de video
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Centrar el video en la pantalla
+                        volume: 0  # Silenciar el audio
+
+                    VideoPlayer:
+                        id: video_player
+                        source: "DFS.mp4"
+                        state: 'play'  # Inicia el video en reproducción
+                        options: {'eos':'loop'}  # Reproduce en bucle
+                        size_hint: None, None  # Tamaño del reproductor de video
+                        size: 3000, 1000  # Tamaño del reproductor de video
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Centrar el video en la pantalla
+                        volume: 0  # Silenciar el audio
+
+        Button:
+            text: 'Menu'
+            size_hint: None, None
+            size: 100, 20
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+            on_release: root.manager.current = 'Topics'
+
+
+<BolitaScreen>:
+    name: 'Bolita'
+    BoxLayout:
+        orientation: 'vertical'
+
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'fondo5.jpeg'
+    CanvasExample5:
+
+        id: canvas_example
+
+        Button:
+            text: 'Menu'
+            size_hint: None, None
+            size: 100, 20
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+            on_release: root.manager.current = 'Topics'
+    
